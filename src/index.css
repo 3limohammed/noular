@@ -1,0 +1,341 @@
+/* ==========================================================================
+   NOULAR — MASTER DESIGN SYSTEM (VERSION 2026)
+   Quiet Luxury · Architectural Warmth · Moroccan Contemporary
+   Multilingual (Arabic RTL, French, English) · Mobile Mastered
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --color-warm-ivory: #F2EEE6;
+  --color-deep-charcoal: #171614;
+  --color-warm-sand: #D9CEBD;
+  --color-terracotta: #C65D32;
+  --color-muted-brown: #4A3A30;
+  --color-warm-amber: #D9A45B;
+  --color-amber-glow: rgba(217, 164, 91, 0.28);
+  
+  /* Light Theme (Default) */
+  --bg-primary: #F8F6F1;
+  --bg-secondary: #F0ECE3;
+  --bg-card: #FFFFFF;
+  --bg-glass: rgba(248, 246, 241, 0.86);
+  --border-light: rgba(74, 58, 48, 0.12);
+  --border-subtle: rgba(74, 58, 48, 0.06);
+  --text-primary: #171614;
+  --text-secondary: #5C5247;
+  --text-muted: #8E8478;
+  --accent-cta: #171614;
+  --accent-cta-text: #F2EEE6;
+  --accent-highlight: #C65D32;
+  --shadow-soft: 0 10px 30px -10px rgba(23, 22, 20, 0.08);
+  --shadow-hover: 0 20px 40px -12px rgba(23, 22, 20, 0.14);
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-arabic-serif: 'Amiri', 'Traditional Arabic', serif;
+  --font-arabic-sans: 'Tajawal', system-ui, sans-serif;
+
+  /* Transitions */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-hover: 600ms;
+}
+
+/* Dark Theme (Never alters product hue or photography) */
+html.dark {
+  --bg-primary: #121110;
+  --bg-secondary: #191816;
+  --bg-card: #1D1C19;
+  --bg-glass: rgba(18, 17, 16, 0.88);
+  --border-light: rgba(242, 238, 230, 0.12);
+  --border-subtle: rgba(242, 238, 230, 0.06);
+  --text-primary: #F2EEE6;
+  --text-secondary: #B8B0A4;
+  --text-muted: #7A7268;
+  --accent-cta: #F2EEE6;
+  --accent-cta-text: #171614;
+  --accent-highlight: #D9A45B;
+  --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Arabic RTL Typography */
+html[dir="rtl"] {
+  font-family: var(--font-arabic-sans);
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] .font-serif {
+  font-family: var(--font-arabic-serif);
+  letter-spacing: normal;
+  font-weight: 700;
+}
+
+html[dir="rtl"] .text-eyebrow {
+  font-family: var(--font-arabic-sans);
+  letter-spacing: 0.12em;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.6;
+  background-color: var(--bg-primary);
+  transition: background-color 400ms ease, color 400ms ease;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm-sand);
+  border-radius: 3px;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #3A352F;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.text-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.text-editorial-lead {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  line-height: 1.35;
+  color: var(--text-secondary);
+}
+
+/* Layout Utilities */
+.container-noular {
+  width: 100%;
+  max-width: 1380px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.2rem, 4vw, 3.5rem);
+  padding-right: clamp(1.2rem, 4vw, 3.5rem);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.2rem, 4vw, 2.5rem);
+  padding-right: clamp(1.2rem, 4vw, 2.5rem);
+}
+
+/* Buttons & Interactive Elements */
+.btn-noular-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background-color: var(--accent-cta);
+  color: var(--accent-cta-text);
+  padding: 0.95rem 2.2rem;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--accent-cta);
+  cursor: pointer;
+  transition: all 350ms var(--ease-editorial);
+  user-select: none;
+}
+
+html[dir="rtl"] .btn-noular-primary {
+  font-family: var(--font-arabic-sans);
+  letter-spacing: 0.08em;
+}
+
+.btn-noular-primary:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-noular-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background-color: transparent;
+  color: var(--text-primary);
+  padding: 0.95rem 2.2rem;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: all 350ms var(--ease-editorial);
+  user-select: none;
+}
+
+html[dir="rtl"] .btn-noular-secondary {
+  font-family: var(--font-arabic-sans);
+  letter-spacing: 0.08em;
+}
+
+.btn-noular-secondary:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: #25D366;
+  color: #FFFFFF;
+  padding: 0.95rem 1.8rem;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 300ms var(--ease-editorial);
+  user-select: none;
+}
+
+html[dir="rtl"] .btn-whatsapp {
+  font-family: var(--font-arabic-sans);
+  letter-spacing: 0.06em;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1EBE5D;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(37, 211, 102, 0.35);
+}
+
+/* Custom Cursor (Desktop Only) */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: var(--text-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 250ms ease, height 250ms ease, background-color 250ms ease, transform 100ms ease;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.expanded {
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Mobile Ergonomics & Polish */
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+  }
+  
+  .container-noular {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+  
+  .container-narrow {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+
+  /* Prevent automatic iOS input zoom */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  .btn-noular-primary, .btn-noular-secondary, .btn-whatsapp {
+    padding: 0.9rem 1.4rem;
+    font-size: 0.78rem;
+    width: 100%;
+    min-height: 46px;
+  }
+
+  /* Smooth touch gestures */
+  body {
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
