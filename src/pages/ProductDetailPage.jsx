@@ -19,8 +19,8 @@ import {
 import { CARE_GUIDE, BRAND } from '../data/noularData';
 
 export const ProductDetailPage = ({ slug, navigateTo }) => {
-  const product = useProduct(slug) || useAllProducts()[0];
   const allProducts = useAllProducts();
+  const product = useProduct(slug) || allProducts[0];
   const { addToCart, getSingleProductWhatsAppUrl } = useCart();
   const { t, isAr, dir } = useLanguage();
   const { isDark } = useTheme();

@@ -1,0 +1,14 @@
+{
+  "routes": [
+    { "path": "/", "title": "Home" },
+    { "path": "/fr/shop", "title": "Shop" },
+    { "path": "/fr/product/:slug", "title": "Product" },
+    { "path": "/fr/atelier", "title": "Atelier" },
+    { "path": "/fr/our-store", "title": "Our Store" },
+    { "path": "/fr/how-it-is-made", "title": "How It Is Made" },
+    { "path": "/fr/pro-process", "title": "Process" },
+    { "path": "/fr/contact", "title": "Contact" },
+    { "path": "/fr/privacy", "title": "Privacy" },
+    { "path": "/fr/terms", "title": "Terms" }
+  ]
+}

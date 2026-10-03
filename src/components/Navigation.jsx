@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import { ShoppingBag, Sun, Moon, Menu, X, ArrowRight, ArrowLeft, MessageCircle, Globe, Smartphone, QrCode } from 'lucide-react';
 import { BRAND } from '../data/noularData';
 import { MobileShareModal } from './MobileShareModal';
