@@ -328,6 +328,116 @@ html[dir="rtl"] .btn-whatsapp {
     overscroll-behavior-y: none;
     -webkit-overflow-scrolling: touch;
   }
+
+  /* Cinematic hero: preserve the visual hierarchy without crowding a phone viewport. */
+  .hero-video-scroller-container {
+    height: 320svh !important;
+  }
+
+  .hero-video-scroller-container > div {
+    height: 100svh !important;
+    min-height: 540px;
+  }
+
+  .hero-video-scroller-container header {
+    top: max(0.75rem, env(safe-area-inset-top));
+    padding-left: 0.9rem !important;
+    padding-right: 0.9rem !important;
+    gap: 0.65rem;
+    align-items: flex-start;
+  }
+
+  .hero-hud-brand {
+    min-width: 0;
+    flex: 1 1 auto;
+    gap: 0.45rem !important;
+  }
+
+  .hero-hud-brand > span:not(:first-child) {
+    font-size: 0.58rem !important;
+    line-height: 1.25;
+    letter-spacing: 0.08em !important;
+    max-width: 12rem;
+  }
+
+  .hero-hud-actions {
+    flex: 0 0 auto;
+    gap: 0.3rem !important;
+  }
+
+  .hero-hud-actions button {
+    min-width: 2.45rem;
+    min-height: 2.45rem;
+    padding: 0.5rem !important;
+    justify-content: center;
+  }
+
+  .hero-hud-actions button span {
+    display: none;
+  }
+
+  .hero-story-card {
+    bottom: calc(5.75rem + env(safe-area-inset-bottom)) !important;
+    width: calc(100% - 1.5rem) !important;
+    max-height: 42svh;
+    overflow-y: auto;
+    padding: 0.9rem 0.85rem 0.75rem !important;
+    gap: 0.35rem !important;
+    border-radius: 0.5rem !important;
+  }
+
+  .hero-story-card h2 {
+    font-size: clamp(1.35rem, 6.5vw, 1.8rem) !important;
+    line-height: 1.12 !important;
+  }
+
+  .hero-story-card p {
+    font-size: 0.78rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .hero-story-cta {
+    gap: 0.45rem !important;
+  }
+
+  .hero-story-cta button {
+    width: auto !important;
+    min-height: 2.65rem;
+    padding: 0.55rem 0.7rem !important;
+    font-size: 0.66rem !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .hero-mobile-nav {
+    min-height: 2.2rem;
+    padding-top: 0.45rem !important;
+  }
+
+  .hero-mobile-nav button {
+    min-width: 4.4rem;
+    min-height: 2rem;
+    padding: 0.25rem !important;
+  }
+
+  .hero-timeline {
+    bottom: calc(0.55rem + env(safe-area-inset-bottom)) !important;
+    padding-left: 0.9rem !important;
+    padding-right: 0.9rem !important;
+    gap: 0.35rem !important;
+  }
+
+  .hero-timeline > div:nth-child(2) {
+    height: 6px !important;
+  }
+
+  .hero-time-row {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .hero-time-row > div:first-child span {
+    max-width: 13rem;
+  }
 }
 
 /* Reduced Motion Override */

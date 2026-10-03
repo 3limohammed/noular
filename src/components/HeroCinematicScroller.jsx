@@ -432,7 +432,10 @@ export const HeroCinematicScroller = ({ onExploreCollection, onProductSelect }) 
         ctx.scale(zoomScale, zoomScale);
 
         // Aspect fit image inside stage
-        const maxH = height * 0.56;
+        const isNarrowViewport = width < 700;
+        const maxH = isNarrowViewport
+          ? Math.min(height * 0.44, width * 0.9)
+          : height * 0.56;
         const scale = maxH / activeImageToDraw.naturalHeight;
         const drawW = activeImageToDraw.naturalWidth * scale;
         const drawH = maxH;
@@ -472,6 +475,7 @@ export const HeroCinematicScroller = ({ onExploreCollection, onProductSelect }) 
       const rect = canvas.getBoundingClientRect();
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.scale(dpr, dpr);
     };
 
@@ -548,7 +552,7 @@ export const HeroCinematicScroller = ({ onExploreCollection, onProductSelect }) 
           }}
         >
           {/* Eyebrow & Live 4K Cinema Badge */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          <div className="hero-hud-brand" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
             <span
               style={{
                 width: '8px',
@@ -593,7 +597,7 @@ export const HeroCinematicScroller = ({ onExploreCollection, onProductSelect }) 
           </div>
 
           {/* Interactive Cinema Action Controls */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div className="hero-hud-actions" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             {/* Interactive Light Power Toggle */}
             <button
               onClick={handleToggleLight}
@@ -702,6 +706,7 @@ export const HeroCinematicScroller = ({ onExploreCollection, onProductSelect }) 
 
         {/* Narrative Storytelling Floating Card */}
         <div
+          className="hero-story-card"
           style={{
             position: 'absolute',
             bottom: 'clamp(5.2rem, 12vh, 6.8rem)',
@@ -768,7 +773,7 @@ export const HeroCinematicScroller = ({ onExploreCollection, onProductSelect }) 
 
           {/* Action CTAs on later scenes (04, 05, 06) */}
           {activeIndex >= 3 && (
-            <div style={{ marginTop: '0.6rem', display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap' }}>
+            <div className="hero-story-cta" style={{ marginTop: '0.6rem', display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap' }}>
               <button
                 onClick={() => onProductSelect(heroProduct.slug)}
                 className="btn-noular-primary"
@@ -809,7 +814,7 @@ export const HeroCinematicScroller = ({ onExploreCollection, onProductSelect }) 
 
           {/* Mobile One-Thumb Story Navigation Arrows */}
           <div
-            className="mobile-only"
+            className="mobile-only hero-mobile-nav"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -863,6 +868,7 @@ export const HeroCinematicScroller = ({ onExploreCollection, onProductSelect }) 
 
         {/* Bottom Interactive Video Scrubbing Timeline Bar */}
         <footer
+          className="hero-timeline"
           style={{
             position: 'absolute',
             bottom: 'clamp(0.6rem, 1.8vh, 1.2rem)',
@@ -921,6 +927,7 @@ export const HeroCinematicScroller = ({ onExploreCollection, onProductSelect }) 
 
           {/* Interactive Scrub Timeline Track */}
           <div
+            className="hero-timeline-track"
             onClick={(e) => {
               const rect = e.currentTarget.getBoundingClientRect();
               const clickX = e.clientX - rect.left;
@@ -972,6 +979,7 @@ export const HeroCinematicScroller = ({ onExploreCollection, onProductSelect }) 
 
           {/* Timecode & Scroll Instruction Indicator */}
           <div
+            className="hero-time-row"
             style={{
               display: 'flex',
               alignItems: 'center',
